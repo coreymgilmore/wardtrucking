@@ -161,17 +161,17 @@ func SetTimeout(seconds time.Duration) {
 
 //RequestPickup performs the call to the Ward API to schedule a pickup
 func (p *PickupRequest) RequestPickup() (responseData Response, err error) {
+	//add xml attributes
+	p.XsdAttr = xsdAttr
+	p.XsiAttr = xsiAttr
+	p.Soap12Attr = soap12Attr
+
 	//convert the pickup request to an xml
 	xmlBytes, err := xml.Marshal(p)
 	if err != nil {
 		err = errors.Wrap(err, "ward.RequestPickup - could not marshal xml")
 		return
 	}
-
-	//add xml attributes
-	p.XsdAttr = xsdAttr
-	p.XsiAttr = xsiAttr
-	p.Soap12Attr = soap12Attr
 
 	//add the xml header and an ending blank line
 	//need both to get request to work for some reason
