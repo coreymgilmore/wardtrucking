@@ -11,13 +11,17 @@ Currently this package can perform:
 To create a pickup request:
 - Set test or production mode (SetProductionMode()).
 - Set shipper information (ShipperInfomation{}).
-- Set shipment data (Shipment{}).
+- Set shipment data (PickupRequestShipment{}).
 - Create the pickup request object (PickupRequest{}).
 - Request the pickup (RequestPickup()).
 - Check for any errors.
 
 To get a rate quote:
--
+- Create the item you want a quote on (RateQuoteDetailItem{}).
+- Create the inner request with details (RateQuoteRequestInner{}).
+- Create the rate quote request (RateQuoteRequest{}).
+- Request the rate quote (RateQuote()).
+- Check for any errors.
 */
 package ward
 
